@@ -5,14 +5,14 @@ Hackintosh-Lenovo-R720
 
 #### 配置信息
 
-| 项目               | 参数                             |
-| ------------------ | -------------------------------- |
-| 电脑型号           | Lenovo Rescuer R720-15IKBN       |
-| CPU                | Intel Core i5-7300HQ (Kaby Lake) |
-| 显卡               | 核显 HD 630；独显 GTX 1050 Ti    |
-| 有线网卡           | Realtek RTL8168GU/8111GU         |
-| 无线网卡（已更换） | BCM94360CS2                      |
-| 声卡               | Realtek ALC235                   |
+| 项目                    | 参数                                       |
+| ----------------------- | ------------------------------------------ |
+| 电脑型号                | Lenovo Rescuer R720-15IKBN                 |
+| CPU                     | Intel Core i5-7300HQ (Kaby Lake)           |
+| 显卡                    | 核显 HD 630；独显 GTX 1050 Ti              |
+| 有线网卡                | Realtek RTL8168GU/8111GU                   |
+| 无线网卡/蓝牙（已更换） | BCM94360CS2，可选启用BCM94352z(DW1560)驱动 |
+| 声卡                    | Realtek ALC235                             |
 
 #### 驱动
 
@@ -57,17 +57,25 @@ Hackintosh-Lenovo-R720
 * 亮度控制键<kbd>Fn+F11</kbd>和<kbd>Fn+F12</kbd>不能用，据说可以通过DSDT修复，还没搞出来
 
   使用小键盘<kbd>4</kbd>和<kbd>-</kbd>键分别控制亮度减和亮度加
+  
+* 电池供电时，耳机声音沉闷，可能通过定制正确的AppleALC layout解决
+
+  当电池供电时，外部放大器 (External Amplifier, EAPD) 关闭耳机麦克风以节省电能，影响到声音输出
+
+* 电池没有热补丁，但是不影响电池正常使用和电量显示
 
 #### 使用
 
 1. 复制BOOT和OC文件夹至ESP分区下的EFI文件夹；
 2. 修改`config.plist>Platforminfo>Generic`，在`MLB`、`ROM`、`SystemSerialNumber`、`SystemUUID`填入自己的机器信息；
-3. 修改UEFI设置，从OC启动。
+3. 查看下一节注意事项，进行相关修改；
+4. 修改UEFI设置，从OC启动。
 
 #### 注意事项
 
 1. 安装和升级的过程中可能卡`IOG Flags 0x3 (0x51)`，在`Config.plist>DeviceProperties>Add>PciRoot(0x0)/Pci(0x2,0x0)>APPL,ig-platform-id`中填入`12345678`可以解决，待安装或升级成功后再改回原来值。
 2. EFI默认支持开机音频，在`Config.plist>UEFI>Audio>AudioSupport`中可以禁用它。
+3. 添加了BCM94352z(DW1560)驱动，如有需要可在`Config.plist>Kernel>Add`中将驱动勾选启用，不确定有没有用。
 
 #### 参考资料
 
@@ -76,7 +84,8 @@ Hackintosh-Lenovo-R720
 3. [VoodooPS2](https://github.com/acidanthera/VoodooPS2)
 4. [OC-little](https://github.com/daliansky/OC-little)
 5. [OpenCore黑苹果引导开机声音与图形界面设置](https://shuiyunxc.gitee.io/2020/03/19/SoundGra/index/)
-6. QQ群 联想拯救者R720黑苹果 494816700
+6. [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup)
+7. QQ群 联想拯救者R720黑苹果 494816700
 
 #### 更新日志
 
@@ -89,4 +98,5 @@ Hackintosh-Lenovo-R720
 
 >2020.11.23
 >
->- 删除了自定义的PCI设备信息，避免加各类网卡驱动时产生冲突
+>- 删除自定义的PCI设备信息，避免加各类网卡驱动时产生冲突
+>- 添加BCM94352z(DW1560)驱动，**未测试，默认禁用**
