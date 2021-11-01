@@ -3,22 +3,20 @@ Hackintosh-Lenovo-R720
 
 联想拯救者R720-15IKBN OpenCore引导，经过测试可以用于
 
-- macOS Big Sur 11.2.1
-
-- macOS Big Sur 11.1
-- macOS Big Sur 11.0.1
+- macOS Monterey 12.0.1
+- macOS Big Sur 11.x
 - macOS Catalina 10.15.x
 
 #### 配置信息
 
-| 项目                    | 参数                                       |
-| ----------------------- | ------------------------------------------ |
-| 电脑型号                | Lenovo Rescuer R720-15IKBN                 |
-| CPU                     | Intel Core i5-7300HQ (Kaby Lake)           |
-| 显卡                    | 核显 HD 630；独显 GTX 1050 Ti              |
-| 有线网卡                | Realtek RTL8168GU/8111GU                   |
-| 无线网卡/蓝牙（已更换） | BCM94360CS2，可选启用BCM94352z(DW1560)驱动 |
-| 声卡                    | Realtek ALC235                             |
+| 项目                    | 参数                             |
+| ----------------------- | -------------------------------- |
+| 电脑型号                | Lenovo Rescuer R720-15IKBN       |
+| CPU                     | Intel Core i5-7300HQ (Kaby Lake) |
+| 显卡                    | 核显 HD 630；独显 GTX 1050 Ti    |
+| 有线网卡                | Realtek RTL8168GU/8111GU         |
+| 无线网卡/蓝牙（已更换） | BCM94360CS2                      |
+| 声卡                    | Realtek ALC235                   |
 
 #### 驱动
 
@@ -32,11 +30,11 @@ Hackintosh-Lenovo-R720
 
 * 有线网卡 RealtekRTL8111.kext
 
-* 触控板手势全部可用 新版VoodooPS2Controller
+* 触控板手势全部可用 VoodooPS2Controller
 
 * 摄像头可用
 
-* USB2.0/3.0 SSDT-UIAC+SSDT-USBX+USBinjectAll
+* USB2.0/3.0 USBToolBox定制方案
 
 * 蓝牙（更换无线网卡）
 
@@ -58,7 +56,7 @@ Hackintosh-Lenovo-R720
 
 * ~~小键盘和触控板问题见[issues#1](https://github.com/happylzyy/Hackintosh-Lenovo-R720/issues/1)~~
 
-* <kbd>PrtSc</kbd>键通过SSDT映射到F13，在系统偏好设置中设置快捷键以使用截图功能。
+* <kbd>PrtSc</kbd>键通过SSDT映射到F13，在系统偏好设置中设置快捷键以使用截图功能
 
 * 亮度控制键<kbd>Fn+F11</kbd>和<kbd>Fn+F12</kbd>不能用，据说可以通过DSDT修复，还没搞出来
 
@@ -73,15 +71,17 @@ Hackintosh-Lenovo-R720
 #### 使用
 
 1. 复制BOOT和OC文件夹至ESP分区下的EFI文件夹；
-2. 修改`config.plist>Platforminfo>Generic`，在`MLB`、`ROM`、`SystemSerialNumber`、`SystemUUID`填入自己的机器信息；
-3. 查看下一节注意事项，进行相关修改；
-4. 修改UEFI设置，从OC启动。
+2. 修改`config.plist>Platforminfo>Generic`，在`MLB`、`ROM`、`SystemSerialNumber`、`SystemUUID`填入自己生成的设备信息；
+4. 修改UEFI设置，从OC启动；
+4. 出现问题可参考下一节注意事项。
 
 #### 注意事项
 
-1. 安装和升级的过程中可能卡`IOG Flags 0x3 (0x51)`，在`Config.plist>DeviceProperties>Add>PciRoot(0x0)/Pci(0x2,0x0)>APPL,ig-platform-id`中填入`12345678`可以解决，待安装或升级成功后再改回原来值。
-2. EFI默认支持开机音频，在`Config.plist>UEFI>Audio>AudioSupport`中可以禁用它。
-3. 添加了BCM94352z(DW1560)驱动，如有需要可在`Config.plist>Kernel>Add`中将驱动勾选启用，不确定有没有用。
+1. 对于macOS Big Sur 和macOS Catalina，安装和升级的过程中可能卡`IOG Flags 0x3 (0x51)`，解决方法是在`Config.plist>DeviceProperties>Add>PciRoot(0x0)/Pci(0x2,0x0)>APPL,ig-platform-id`中填入`12345678`，待安装或升级成功后再改回原来值。
+2. 对于macOS Monterey，
+   - 从旧版本升级可能需要额外的boot-args，包括`vsmcgen=1 -lilubetaall vsmcbeta`。
+   - 如果从旧版本更新时出现循环重启，需要将`Config.plist>Misc>Security>SecureBootModel`设置为`Disabled`，**重新下载更新**再安装。
+3. 开机声音默认开启，如不需要，可以在`Config.plist>UEFI>Audio>AudioSupport`中禁用它。
 4. ~~参考[issues#1](https://github.com/happylzyy/Hackintosh-Lenovo-R720/issues/1)选择键盘驱动。~~
 
 #### 参考资料
@@ -97,6 +97,8 @@ Hackintosh-Lenovo-R720
 5. [OpenCore黑苹果引导开机声音与图形界面设置](https://shuiyunxc.gitee.io/2020/03/19/SoundGra/index/)
 
 6. [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup)
+
+7. [USBToolBox](https://github.com/USBToolBox)
 
    感谢为这些项目作出贡献的大佬们！
 
@@ -123,3 +125,13 @@ Hackintosh-Lenovo-R720
 >
 > - 添加最新编译的VoodooPS2驱动，解决了小键盘不能用的问题
 > - 删除了旧驱动ApplePS2SmartTouchPad
+
+> 2021.10.31
+>
+> - 更新OpenCore至0.7.4版本
+> - 更新了很多驱动到最新版本
+> - 更新了UEFI Drivers 和 Tools
+> - 删除了BCM94352z(DW1560)驱动
+> - 用USBToolBox重新定制USB端口，修复了很多错误
+> - 替换VoodooTSCSync为CpuTscSync，解决了唤醒内核崩溃的问题
+
