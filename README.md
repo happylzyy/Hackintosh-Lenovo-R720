@@ -24,15 +24,17 @@ Hackintosh-Lenovo-R720
 
 * CPU变频正常 CPUFriend + CPUFriendDataProvider
 
+  支持900MHz～3000MHz共22档变频（来自CPU-S工具估算值，实际睿频看情况）
+
 * 声卡 AppleALC + CodecCommander
 
   layout-id=28
 
-  扬声器、耳机正常，麦克风阵列、线路输入正常
+  扬声器、耳机正常，麦克风阵列、线路输入正常，EAPD工作正常
 
 * 有线网卡 RealtekRTL8111.kext
 
-* 触控板手势全部可用 VoodooPS2Controller
+* 触控板手势全部可用，小键盘正常  VoodooPS2Controller
 
 * 摄像头可用
 
@@ -72,7 +74,7 @@ Hackintosh-Lenovo-R720
 
 1. 复制BOOT和OC文件夹至ESP分区下的EFI文件夹；
 2. 修改`config.plist>Platforminfo>Generic`，在`MLB`、`ROM`、`SystemSerialNumber`、`SystemUUID`填入自己生成的设备信息；
-4. 修改UEFI设置，从OC启动；
+4. 修改UEFI启动项，从OC启动；
 4. 出现问题可参考下一节注意事项。
 
 #### 注意事项
@@ -100,6 +102,10 @@ Hackintosh-Lenovo-R720
 7. [USBToolBox](https://github.com/USBToolBox)
 
 8. [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)
+
+9. [CPUFriend](https://github.com/acidanthera/CPUFriend)
+
+10. [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend)
 
    感谢为这些项目作出贡献的大佬们！
 
