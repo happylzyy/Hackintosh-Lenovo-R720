@@ -142,6 +142,22 @@
 				<key>Path</key>
 				<string>SSDT-PS2K.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-ECRW.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-RCSM.aml</string>
+			</dict>
 		</array>
 		<key>Delete</key>
 		<array>
