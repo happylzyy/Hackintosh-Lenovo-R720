@@ -50,6 +50,8 @@ Hackintosh-Lenovo-R720
 
 * WLAN（更换无线网卡）
 
+* 联想OEM的部分功能，经过测试<kbd>Fn+Fxx</kbd>键可以使用、风扇传感器正常、电池温度传感器正常
+
 #### 存在问题
 
 * macOS Monterey 的HDMI不能使用，改机型的方法失效
@@ -79,13 +81,15 @@ Hackintosh-Lenovo-R720
    
 3. <kbd>PrtSc</kbd>键已通过SSDT-PS2K映射到<kbd>F13</kbd>，在系统偏好设置中设置截图快捷键为<kbd>F13</kbd>可以使用系统自带截图功能。
 
-4. macOS下的触控板手势功能丰富，与Windows手势略有不同。触控板三指拖移手势（比如拖动文件、选择文字，Windows下是双击拖动）需要到“设置->辅助功能->指针控制->触控板选项->启用拖移->三指拖移”开启，其他手势在“设置->触控板”里设置。
+4. 添加了YogaSMC用来驱动联想OEM部分功能，比如Fn+Fxx键、键盘背光控制、风扇传感器，功能的启用需要安装额外的应用和面板[YogaSMCNC](https://github.com/zhen-zen/YogaSMC/releases)。
 
-5. OpenCore通过修改操作系统的运行环境以使其更适合macOS（比如屏蔽独显，修改序列号，修改硬件UUID，修改DSDT等），这种修改可能对其他操作系统产生不利影响，比如win下的独立显卡消失、部分软件激活失败，因此不建议使用OpenCore引导Windows等其他操作系统。
+5. macOS下的触控板手势功能丰富，与Windows手势略有不同。触控板三指拖移手势（比如拖动文件、选择文字，Windows下是双击拖动）需要到“设置->辅助功能->指针控制->触控板选项->启用拖移->三指拖移”开启，其他手势在“设置->触控板”里设置。
 
-6. 解锁MSR 0x2E CFG Lock后可以加载苹果的原生电源管理，理论上更省电，更接近白苹果，详情请见[MSR_CFG_unlock.md](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/MSR_CFG_unlock.md)。
+6. OpenCore通过修改操作系统的运行环境以使其更适合macOS（比如屏蔽独显，修改序列号，修改硬件UUID，修改DSDT等），这种修改可能对其他操作系统产生不利影响，比如win下的独立显卡消失、部分软件激活失败，因此不建议使用OpenCore引导Windows等其他操作系统。
 
-7. 自己定制睡眠模式，可以进一步优化macOS的电源管理，定制睡眠模式需要用到`pmset`命令，具体说明和用法请见[详解Mac睡眠模式设置](https://www.cnblogs.com/motoyang/p/4947139.html)和[Mac的睡眠模式介绍](https://www.cnblogs.com/motoyang/p/6075609.html)。
+7. 解锁MSR 0x2E CFG Lock后可以加载苹果的原生电源管理，理论上更省电，更接近白苹果，详情请见[MSR_CFG_unlock.md](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/MSR_CFG_unlock.md)。
+
+8. 自己定制睡眠模式，可以进一步优化macOS的电源管理，定制睡眠模式需要用到`pmset`命令，具体说明和用法请见[详解Mac睡眠模式设置](https://www.cnblogs.com/motoyang/p/4947139.html)和[Mac的睡眠模式介绍](https://www.cnblogs.com/motoyang/p/6075609.html)。
 
    举个例子：
 
@@ -128,6 +132,7 @@ Hackintosh-Lenovo-R720
 9. [CPUFriend](https://github.com/acidanthera/CPUFriend)
 10. [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend)
 11. [详解Mac睡眠模式设置](https://www.cnblogs.com/motoyang/p/4947139.html)、[Mac的睡眠模式介绍](https://www.cnblogs.com/motoyang/p/6075609.html)
+12. [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 
    感谢为这些项目和教程作出贡献的大佬们！
 
