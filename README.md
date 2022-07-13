@@ -3,7 +3,7 @@ Hackintosh-Lenovo-R720
 
 适用于联想拯救者R720-15IKBN OpenCore EFI，经过测试可以用于
 
-- macOS Monterey 12.3
+- macOS Monterey 12.x
 - macOS Big Sur 11.x
 - macOS Catalina 10.15.x
 
@@ -133,6 +133,11 @@ Hackintosh-Lenovo-R720
    感谢为这些项目和教程作出贡献的大佬们！
 
 #### 更新日志
+
+>2022.07.13
+>
+>- 更新到OpenCore 0.8.2
+>- 更新kext到最新版本
 
 >2022.01.09
 >
