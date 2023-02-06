@@ -1,0 +1,4 @@
+Name	Offset	VarStore	Value
+BIOS Lock	0x17	PchSetup	0x0
+CFG Lock	0x3C	CpuSetup	0x0
+DVMT Pre-Allocated	0xDF	SaSetup	0x2
