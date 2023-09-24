@@ -12,7 +12,7 @@ jobs:
 
       - uses: brokeyourbike/ocvalidate-action@v0.3
         with:
-          opencore-version: '0.9.3'
+          opencore-version: '0.9.5'
           release: true
 
       - run: ocvalidate ./OC/config.plist
