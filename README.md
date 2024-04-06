@@ -8,6 +8,10 @@ Hackintosh-Lenovo-R720
 - macOS Big Sur 11.x
 - macOS Catalina 10.15.x
 
+macOS Sonoma 或许可以使用，但没有测试，若要安装需要手动修改config替换成Sonoma支持的smbios机型。
+
+macOS Sonoma 移除了对Broadcom无线网卡的支持，驱动方法请看[macOS-Sonoma-Broadcom-Wifi](https://github.com/billabongbruno/macOS-Sonoma-Broadcom-Wifi)，关于Intel无线网卡的驱动请看[OpenIntelWireless](https://openintelwireless.github.io/)。
+
 #### 配置信息
 
 | 项目                    | 参数                             |
@@ -55,7 +59,7 @@ Hackintosh-Lenovo-R720
 
 #### 存在问题
 
-* 最新macOS的HDMI不可用，因为旧smbios机型不再支持，可以装旧版本macOS通过改机型（比如MacbookPro11,4）打开HDMI
+* macOS版本Ventura及以上的HDMI不可用，因为旧smbios机型不再支持，可以装旧版本macOS通过改机型（比如MacbookPro11,4）打开HDMI
 
 * SD读卡器不能正常驱动
 
