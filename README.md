@@ -1,17 +1,6 @@
 Hackintosh-Lenovo-R720
 =========
 
-适用于联想拯救者R720-15IKBN OpenCore EFI，经过测试可以用于
-
-- macOS Ventura 13.x
-- macOS Monterey 12.x
-- macOS Big Sur 11.x
-- macOS Catalina 10.15.x
-
-macOS Sonoma 或许可以使用，但没有测试，若要安装需要手动修改config替换成Sonoma支持的smbios机型。
-
-macOS Sonoma 移除了对Broadcom无线网卡的支持，驱动方法请看[macOS-Sonoma-Broadcom-Wifi](https://github.com/billabongbruno/macOS-Sonoma-Broadcom-Wifi)，关于Intel无线网卡的驱动请看[OpenIntelWireless](https://openintelwireless.github.io/)。
-
 #### 配置信息
 
 | 项目                    | 参数                             |
@@ -23,94 +12,61 @@ macOS Sonoma 移除了对Broadcom无线网卡的支持，驱动方法请看[macO
 | 无线网卡/蓝牙（已更换） | BCM94360CS2                      |
 | 声卡                    | Realtek ALC235                   |
 
+适用于联想拯救者R720-15IKBN OpenCore EFI，经过测试可以用于
+
+- macOS Sequoia 15.0
+- macOS Ventura 13.x
+- macOS Monterey 12.x
+- macOS Big Sur 11.x
+- macOS Catalina 10.15.x
+
+旧版本macOS不支持直接升级到macOS Sonoma / Sequoia，需要使用[OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)制作修补后的U盘镜像升级。用本EFI替换U盘EFI，从U盘启动升级。
+
+macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，需要使用[OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)对系统进行修补。
+
+关于Intel无线网卡的驱动见[OpenIntelWireless](https://openintelwireless.github.io/)。
+
 #### 已驱动
 
-* 核显 HD630正常驱动，独显已屏蔽
+* 核显 HD630
 
-* 屏幕亮度调节正常，亮度调节快捷键<kbd>Fn+F11</kbd>和<kbd>Fn+F12</kbd>正常驱动
+* 屏幕亮度调节，亮度调节功能键
 
-* CPU变频正常
+* CPU变频：支持900MHz～3100MHz共23档变频（来自CPU-S工具的估算值）
 
-  支持900MHz～3100MHz共23档变频（来自CPU-S工具的估算值，实际睿频看情况）
+* 睡眠唤醒：普通睡眠、合盖睡眠正常
 
-* 睡眠唤醒正常
+* 声卡驱动（layout-id=28）：扬声器、耳机、麦克风阵列、线路输入、EAPD工作正常
 
-  普通睡眠、合盖睡眠都正常
+* 有线网卡
 
-* 声卡驱动正常（layout-id=28）
+* 触控板与键盘：支持苹果触控板手势，小键盘与NumLock键正常
 
-  扬声器、耳机正常，麦克风阵列、线路输入正常，EAPD工作正常
+* 摄像头
 
-* 有线网卡驱动正常
+* USB2.0/3.0，type-C
 
-* 支持苹果触控板手势，小键盘可正常使用，NumLock键正常
+* 蓝牙（更换的无线网卡）：随航、接力、隔空投送、通用控制
 
-* 摄像头驱动正常
+* WLAN（更换的无线网卡）
 
-* USB2.0/3.0，type-C驱动正常
+* 联想OEM的部分功能：<kbd>Fn+Fxx</kbd>键、风扇传感器、电池传感器
 
-* 蓝牙（更换无线网卡）
+#### 已知问题
 
-  随航、接力、隔空投送、通用控制都可以正常使用
+* macOS Ventura及以上版本外接显示器不可用
 
-* WLAN（更换无线网卡）
+  安装旧版本macOS，改机型配置文件为`MacbookPro11,4`可启用HDMI。
 
-* 联想OEM的部分功能，经过测试<kbd>Fn+Fxx</kbd>键可以使用、风扇传感器正常、电池温度传感器正常
+* SD读卡器不可用
 
-#### 存在问题
+#### 附加内容
 
-* macOS版本Ventura及以上的HDMI不可用，因为旧smbios机型不再支持，可以装旧版本macOS通过改机型（比如MacbookPro11,4）打开HDMI
+1. <kbd>PrtSc</kbd>键已通过SSDT-PS2K映射到<kbd>F13</kbd>，系统偏好设置中设置截图快捷键为<kbd>F13</kbd>即可使用PrtSc截图功能。
 
-* SD读卡器不能正常驱动
+2. 联想OEM部分功能（Fn+Fxx键、键盘背光控制、风扇传感器）需要安装额外的应用和面板[YogaSMCNC](https://github.com/zhen-zen/YogaSMC/releases)。
 
-#### 使用
-
-1. 复制BOOT和OC文件夹至ESP分区下的EFI文件夹；
-2. 修改`config.plist>Platforminfo>Generic`，在`MLB`、`ROM`、`SystemSerialNumber`、`SystemUUID`填入自己生成的设备信息；
-4. 修改添加UEFI启动项，从OC启动；
-4. 尝试进入macOS系统。
-
-#### 注意事项
-
-1. <kbd>PrtSc</kbd>键已通过SSDT-PS2K映射到<kbd>F13</kbd>，在系统偏好设置中设置截图快捷键为<kbd>F13</kbd>可以使用系统自带截图功能。
-
-2. 添加了YogaSMC用来驱动联想OEM部分功能，比如Fn+Fxx键、键盘背光控制、风扇传感器，功能的启用需要安装额外的应用和面板[YogaSMCNC](https://github.com/zhen-zen/YogaSMC/releases)。
-
-3. 触控板三指拖移手势（比如拖动文件、选择文字，Windows下是双击拖动）需要到“设置->辅助功能->指针控制->触控板选项->启用拖移->三指拖移”开启，其他手势在“设置->触控板”里设置。
-
-4. OpenCore通过修改操作系统的运行环境以使其更适合macOS（比如屏蔽独显，修改序列号，修改硬件UUID，修改DSDT等），这种修改可能对其他操作系统产生不利影响，比如win下的独立显卡消失、部分软件激活失败，因此不建议使用OpenCore引导Windows等其他操作系统。
-
-5. 解锁MSR 0x2E CFG Lock后可以加载苹果的原生电源管理，理论上更省电，更接近白苹果，详见[MSR_CFG_unlock.md](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/MSR_CFG_unlock.md)。
-
-6. 自己定制睡眠模式，可以进一步优化macOS的电源管理，定制睡眠模式需要用到`pmset`命令，具体说明和用法请见[详解Mac睡眠模式设置](https://www.cnblogs.com/motoyang/p/4947139.html)和[Mac的睡眠模式介绍](https://www.cnblogs.com/motoyang/p/6075609.html)。
-
-   举个例子：
-
-   ```bash
-   ❯ pmset -g custom #显示所有模式下的电源管理参数
-   Battery Power:		#电池状态下的电源管理
-    lowpowermode         1
-    autopoweroff         1
-    standbydelayhigh     86400
-    autopoweroffdelay    259200
-    proximitywake        0
-    standby              1
-    standbydelaylow      10800
-    ttyskeepawake        1
-    hibernatemode        3		#睡眠模式3
-   ...
-   AC Power:					#插电源状态下的电源管理
-    autopoweroff         1
-    lowpowermode         0
-    standbydelayhigh     86400
-    autopoweroffdelay    259200
-    proximitywake        1
-    standby              1
-    standbydelaylow      10800
-    ttyskeepawake        1
-    hibernatemode        0		#睡眠模式0
-   ...
-   ```
+3. 关于解锁MSR 0x2E CFG Lock详见[MSR_CFG_unlock.md](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/MSR_CFG_unlock.md)。
 
 #### 参考资料
 
@@ -126,5 +82,4 @@ macOS Sonoma 移除了对Broadcom无线网卡的支持，驱动方法请看[macO
 10. [one-key-cpufriend](https://github.com/stevezhengshiqi/one-key-cpufriend)
 11. [详解Mac睡眠模式设置](https://www.cnblogs.com/motoyang/p/4947139.html)、[Mac的睡眠模式介绍](https://www.cnblogs.com/motoyang/p/6075609.html)
 12. [YogaSMC](https://github.com/zhen-zen/YogaSMC)
-
-   感谢为这些项目和教程作出贡献的大佬们！
+13. [OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)

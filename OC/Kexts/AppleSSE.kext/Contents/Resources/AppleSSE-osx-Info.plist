@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OSBundleCompatibleVersion</key>
+	<string>1.0.0</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.driver.${PRODUCT_NAME:rfc1034identifier}</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>${PRODUCT_NAME}</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>AppleSSE</key>
+		<dict>
+			<key>IOUserClientClass</key>
+			<string>AppleSSEUserClient</string>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.${PRODUCT_NAME:rfc1034identifier}</string>
+			<key>IOClass</key>
+			<string>AppleSSE</string>
+			<key>IOMatchCategory</key>
+			<string>AppleSSE</string>
+			<key>IOProviderClass</key>
+			<string>IOResources</string>
+		</dict>
+	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2013 Apple Inc. All rights reserved.</string>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.kpi.private</key>
+		<string>8.0</string>
+		<key>com.apple.driver.KernelRelayHost</key>
+		<string>1.0</string>
+		<key>com.apple.kpi.bsd</key>
+		<string>8.0</string>
+		<key>com.apple.kpi.libkern</key>
+		<string>8.0</string>
+		<key>com.apple.kpi.mach</key>
+		<string>8.0</string>
+		<key>com.apple.kpi.iokit</key>
+		<string>8.0</string>
+		<key>com.apple.kpi.unsupported</key>
+		<string>8.0</string>
+		<key>com.apple.driver.AppleSEPManager</key>
+		<string>1.0.0</string>
+		<key>com.apple.driver.IOSlaveProcessor</key>
+		<string>1.0.0</string>
+	</dict>
+	<key>OSBundleRequired</key>
+	<string>Root</string>
+</dict>
+</plist>
