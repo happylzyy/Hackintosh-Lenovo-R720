@@ -85,6 +85,10 @@ Hackintosh-Lenovo-R720
    - 如果从旧版本更新时出现循环重启，需要将`Config.plist>Misc>Security>SecureBootModel`设置为`Disabled`，**重新下载更新**再安装。
 3. 开机声音默认开启，如不需要，可以在`Config.plist>UEFI>Audio>AudioSupport`中禁用它。
 
+#### 高阶操作
+
+解锁MSR 0x2E CFG Lock使用苹果原生电源管理，详情请见[MSR_CFG_unlock.md](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/MSR_CFG_unlock.md)。
+
 #### 参考资料
 
 1. [英特尔® 核芯显卡 常见问答](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.cn.md)
