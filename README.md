@@ -24,7 +24,9 @@ Hackintosh-Lenovo-R720
 
 * CPU变频正常
 
-* 声卡 AppleALC layout-id=28
+* 声卡 AppleALC + CodecCommander
+
+  layout-id=28
 
   扬声器、耳机正常，麦克风阵列、线路输入正常
 
@@ -54,17 +56,15 @@ Hackintosh-Lenovo-R720
 
 * 屏幕显示有极少数的雪花一闪而过
 
-* ~~小键盘和触控板问题见[issues#1](https://github.com/happylzyy/Hackintosh-Lenovo-R720/issues/1)~~
-
 * <kbd>PrtSc</kbd>键通过SSDT映射到F13，在系统偏好设置中设置快捷键以使用截图功能
 
 * 亮度控制键<kbd>Fn+F11</kbd>和<kbd>Fn+F12</kbd>不能用，据说可以通过DSDT修复，还没搞出来
 
   使用小键盘<kbd>4</kbd>和<kbd>-</kbd>键分别控制亮度减和亮度加
   
-* 电池供电时，耳机声音沉闷，可能通过定制正确的AppleALC layout解决
+* ~~电池供电时，耳机声音沉闷，可能通过定制正确的AppleALC layout解决~~
 
-  当电池供电时，外部放大器 (External Amplifier, EAPD) 关闭耳机麦克风以节省电能，影响到声音输出
+  ~~当电池供电时，外部放大器 (External Amplifier, EAPD) 关闭耳机麦克风以节省电能，影响到声音输出~~
 
 * 电池没有热补丁，但是不影响电池正常使用和电量显示
 
@@ -82,7 +82,6 @@ Hackintosh-Lenovo-R720
    - 从旧版本升级可能需要额外的boot-args，包括`vsmcgen=1 -lilubetaall vsmcbeta`。
    - 如果从旧版本更新时出现循环重启，需要将`Config.plist>Misc>Security>SecureBootModel`设置为`Disabled`，**重新下载更新**再安装。
 3. 开机声音默认开启，如不需要，可以在`Config.plist>UEFI>Audio>AudioSupport`中禁用它。
-4. ~~参考[issues#1](https://github.com/happylzyy/Hackintosh-Lenovo-R720/issues/1)选择键盘驱动。~~
 
 #### 参考资料
 
@@ -99,6 +98,8 @@ Hackintosh-Lenovo-R720
 6. [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup)
 
 7. [USBToolBox](https://github.com/USBToolBox)
+
+8. [EAPD-Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)
 
    感谢为这些项目作出贡献的大佬们！
 
@@ -135,3 +136,6 @@ Hackintosh-Lenovo-R720
 > - 用USBToolBox重新定制USB端口，修复了很多错误
 > - 替换VoodooTSCSync为CpuTscSync，解决了唤醒内核崩溃的问题
 
+>2021.11.16
+>
+>- 添加CodecCommander，解决了电池供电耳机声音沉闷的EAPD问题
