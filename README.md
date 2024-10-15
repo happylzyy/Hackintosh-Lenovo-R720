@@ -22,7 +22,7 @@ Hackintosh-Lenovo-R720
 
 * 核显 HD630 Lilu+WhateverGreen+Device Properties注入ID
 
-* CPU变频正常
+* CPU变频正常 CPUFriend + CPUFriendDataProvider
 
 * 声卡 AppleALC + CodecCommander
 
@@ -139,3 +139,4 @@ Hackintosh-Lenovo-R720
 >2021.11.16
 >
 >- 添加CodecCommander，解决了电池供电耳机声音沉闷的EAPD问题
+>- 添加CPUFriend动态注入CPU电源管理数据，实现低频模式和睿频
