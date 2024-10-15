@@ -55,7 +55,6 @@ Hackintosh-Lenovo-R720
 #### 注意事项
 
 1. 安装和升级的过程中可能卡`IOG Flags 0x3 (0x51)`，在`Config.plist>DeviceProperties>Add>PciRoot(0x0)/Pci(0x2,0x0)>APPL,ig-platform-id`中填入`12345678`可以解决，待安装或升级成功后再改回原来值。
-2. 如果启动菜单无法识别安装盘，删除`Config.plist>Misc>Security>ScanPolicy`中的值。
 
 #### 参考资料
 
