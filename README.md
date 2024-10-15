@@ -3,6 +3,7 @@ Hackintosh-Lenovo-R720
 
 联想拯救者R720-15IKBN OpenCore引导，经过测试可以用于
 
+- macOS Monterey 12.1
 - macOS Monterey 12.0.1
 - macOS Big Sur 11.x
 - macOS Catalina 10.15.x
@@ -22,6 +23,8 @@ Hackintosh-Lenovo-R720
 
 * 核显 HD630 Lilu+WhateverGreen+Device Properties注入ID
 
+* 屏幕亮度调节正常，亮度控制键<kbd>Fn+F11</kbd>和<kbd>Fn+F12</kbd>正常
+
 * CPU变频正常 CPUFriend + CPUFriendDataProvider
 
   支持900MHz～3000MHz共22档变频（来自CPU-S工具估算值，实际睿频看情况）
@@ -34,7 +37,7 @@ Hackintosh-Lenovo-R720
 
 * 有线网卡 RealtekRTL8111.kext
 
-* 触控板手势全部可用，小键盘正常  VoodooPS2Controller
+* 触控板手势全部可用，小键盘正常 VoodooPS2Controller
 
 * 摄像头可用
 
@@ -50,23 +53,11 @@ Hackintosh-Lenovo-R720
 
 #### 存在问题
 
-* ~~合盖后唤醒有小概率系统崩溃错误，错误报告已经保存，以后尝试修复~~
-
-  关闭系统偏好设置中`唤醒以供网络访问`可以避免系统崩溃
-
 * HDMI不能用，SMBIOS机型换成带HDMI接口的机型可以输出，但没有声音
 
 * 屏幕显示有极少数的雪花一闪而过
 
-* <kbd>PrtSc</kbd>键通过SSDT映射到F13，在系统偏好设置中设置快捷键以使用截图功能
-
-* 亮度控制键<kbd>Fn+F11</kbd>和<kbd>Fn+F12</kbd>不能用，据说可以通过DSDT修复，还没搞出来
-
-  使用小键盘<kbd>4</kbd>和<kbd>-</kbd>键分别控制亮度减和亮度加
-  
-* ~~电池供电时，耳机声音沉闷，可能通过定制正确的AppleALC layout解决~~
-
-  ~~当电池供电时，外部放大器 (External Amplifier, EAPD) 关闭耳机麦克风以节省电能，影响到声音输出~~
+* <kbd>PrtSc</kbd>键通过SSDT-PS2K映射到F13，在系统偏好设置中设置快捷键可以使用系统自带截图功能
 
 * 电池没有热补丁，但是不影响电池正常使用和电量显示
 
@@ -115,38 +106,8 @@ Hackintosh-Lenovo-R720
 
 #### 更新日志
 
-> 2020.11.19
+>2022.01.09
 >
-> * 增加UEFI开机音频支持
-> * 增加开机系统选择菜单主题
-> * 删除多余的Drivers，因为OC已经内置
-> * 增加PrtSc到F13映射
-
->2020.11.23
->
->- 删除自定义的PCI设备信息，避免加各类网卡驱动时产生冲突
->- 添加BCM94352z(DW1560)驱动，**未测试，默认禁用**
-
->2020.12.19
->
->- 更新OpenCore至0.6.4版本
->- 更新VoodooPS2Controller至2.1.9版本
-
-> 2021.03.02
->
-> - 添加最新编译的VoodooPS2驱动，解决了小键盘不能用的问题
-> - 删除了旧驱动ApplePS2SmartTouchPad
-
-> 2021.10.31
->
-> - 更新OpenCore至0.7.4版本
-> - 更新了很多驱动到最新版本
-> - 更新了UEFI Drivers 和 Tools
-> - 删除了BCM94352z(DW1560)驱动
-> - 用USBToolBox重新定制USB端口，修复了很多错误
-> - 替换VoodooTSCSync为CpuTscSync，解决了唤醒内核崩溃的问题
-
->2021.11.16
->
->- 添加CodecCommander，解决了电池供电耳机声音沉闷的EAPD问题
->- 添加CPUFriend动态注入CPU电源管理数据，实现低频模式和睿频
+>- 添加HibernationFixup.kext来支持休眠模式3和25
+>- 修复了`wakeup reason: GLAN XHCI` 问题
+>- 修复了亮度控制快捷键<kbd>Fn+F11</kbd>和<kbd>Fn+F12</kbd>不能用的问题
