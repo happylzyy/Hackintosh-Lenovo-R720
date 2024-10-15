@@ -55,8 +55,6 @@ Hackintosh-Lenovo-R720
 
 * HDMI不能用，SMBIOS机型换成带HDMI接口的机型可以输出，但没有声音
 
-* 屏幕显示有极少数的雪花一闪而过
-
 * <kbd>PrtSc</kbd>键通过SSDT-PS2K映射到F13，在系统偏好设置中设置快捷键可以使用系统自带截图功能
 
 * 电池没有热补丁，但是不影响电池正常使用和电量显示
@@ -111,3 +109,7 @@ Hackintosh-Lenovo-R720
 >- 添加HibernationFixup.kext来支持休眠模式3和25
 >- 修复了`wakeup reason: GLAN XHCI` 问题
 >- 修复了亮度控制快捷键<kbd>Fn+F11</kbd>和<kbd>Fn+F12</kbd>不能用的问题
+
+>2022.02.08
+>
+>- 修复屏幕少量雪花的问题
