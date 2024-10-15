@@ -1,7 +1,11 @@
 Hackintosh-Lenovo-R720
 =========
 
-联想拯救者R720-15IKBN OpenCore引导，适用于macOS Big Sur 11.0.1
+联想拯救者R720-15IKBN OpenCore引导，经过测试可以用于
+
+- macOS Big Sur 11.1
+- macOS Big Sur 11.0.1
+- macOS Catalina 10.15.x
 
 #### 配置信息
 
@@ -50,9 +54,9 @@ Hackintosh-Lenovo-R720
 
 * 屏幕显示有极少数的雪花一闪而过
 
-* 小键盘不能用
+* 小键盘和触控板问题见[issues#1](https://github.com/happylzyy/Hackintosh-Lenovo-R720/issues/1)
 
-  <kbd>PrtSc</kbd>键通过SSDT映射到F13，在系统偏好设置中设置快捷键以使用截图功能
+  <kbd>PrtSc</kbd>键通过SSDT映射到F13，在系统偏好设置中设置快捷键以使用截图功能。
 
 * 亮度控制键<kbd>Fn+F11</kbd>和<kbd>Fn+F12</kbd>不能用，据说可以通过DSDT修复，还没搞出来
 
@@ -76,6 +80,7 @@ Hackintosh-Lenovo-R720
 1. 安装和升级的过程中可能卡`IOG Flags 0x3 (0x51)`，在`Config.plist>DeviceProperties>Add>PciRoot(0x0)/Pci(0x2,0x0)>APPL,ig-platform-id`中填入`12345678`可以解决，待安装或升级成功后再改回原来值。
 2. EFI默认支持开机音频，在`Config.plist>UEFI>Audio>AudioSupport`中可以禁用它。
 3. 添加了BCM94352z(DW1560)驱动，如有需要可在`Config.plist>Kernel>Add`中将驱动勾选启用，不确定有没有用。
+4. 参考[issues#1](https://github.com/happylzyy/Hackintosh-Lenovo-R720/issues/1)选择键盘驱动。
 
 #### 参考资料
 
