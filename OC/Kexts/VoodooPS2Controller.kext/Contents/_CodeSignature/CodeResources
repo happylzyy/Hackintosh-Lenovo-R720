@@ -3,69 +3,44 @@
 <plist version="1.0">
 <dict>
 	<key>files</key>
-	<dict>
-		<key>Resources/VoodooInputMultitouch/MultitouchHelpers.h</key>
-		<data>
-		2Dn/wSPXmisHoAia4HckRfPF9VY=
-		</data>
-		<key>Resources/VoodooInputMultitouch/VoodooInputEvent.h</key>
-		<data>
-		hOWTHbFKIKH3XHTZvFtYQpAekt8=
-		</data>
-		<key>Resources/VoodooInputMultitouch/VoodooInputMessages.h</key>
-		<data>
-		nIbc/w0+c7PxR95vP5OC777oBew=
-		</data>
-		<key>Resources/VoodooInputMultitouch/VoodooInputTransducer.h</key>
-		<data>
-		gkk9BaVsQ4gUmaqO8llP7dOHjhE=
-		</data>
-	</dict>
+	<dict/>
 	<key>files2</key>
 	<dict>
-		<key>Resources/VoodooInputMultitouch/MultitouchHelpers.h</key>
+		<key>PlugIns/VoodooInput.kext</key>
 		<dict>
-			<key>hash</key>
+			<key>cdhash</key>
 			<data>
-			2Dn/wSPXmisHoAia4HckRfPF9VY=
+			sZictzNPFJu5wbcLgG+K3aOojPQ=
 			</data>
-			<key>hash2</key>
-			<data>
-			Sfb8D4oD0U3eU/uN3tJWzilbqnn/x967cYacLl0mbZc=
-			</data>
+			<key>requirement</key>
+			<string>cdhash H"338eec1951880f7fabc32e5dda4abeed7aeff5e6" or cdhash H"b1989cb7334f149bb9c1b70b806f8adda3a88cf4"</string>
 		</dict>
-		<key>Resources/VoodooInputMultitouch/VoodooInputEvent.h</key>
+		<key>PlugIns/VoodooPS2Keyboard.kext</key>
 		<dict>
-			<key>hash</key>
+			<key>cdhash</key>
 			<data>
-			hOWTHbFKIKH3XHTZvFtYQpAekt8=
+			x1crBs8rLEotnO5t9EeCBNKjSjE=
 			</data>
-			<key>hash2</key>
-			<data>
-			OpuAUxvhAflW+cQTW/pExHNuYcYSw55u8Ht9RUhn8ng=
-			</data>
+			<key>requirement</key>
+			<string>cdhash H"07d62b92773d923fae5457f6c47dfa4e798e7958" or cdhash H"c7572b06cf2b2c4a2d9cee6df4478204d2a34a31"</string>
 		</dict>
-		<key>Resources/VoodooInputMultitouch/VoodooInputMessages.h</key>
+		<key>PlugIns/VoodooPS2Mouse.kext</key>
 		<dict>
-			<key>hash</key>
+			<key>cdhash</key>
 			<data>
-			nIbc/w0+c7PxR95vP5OC777oBew=
+			+I2QdW8ubmSN0ZEPdC7xJz4nCgI=
 			</data>
-			<key>hash2</key>
-			<data>
-			bMgl/+2u7e3jQahcFlguJ7X7eBdNz/cJzual+V8dgaQ=
-			</data>
+			<key>requirement</key>
+			<string>cdhash H"84535d8f66a9a6f827a7e913f5667b1d14bc9ad8" or cdhash H"f88d90756f2e6e648dd1910f742ef1273e270a02"</string>
 		</dict>
-		<key>Resources/VoodooInputMultitouch/VoodooInputTransducer.h</key>
+		<key>PlugIns/VoodooPS2Trackpad.kext</key>
 		<dict>
-			<key>hash</key>
+			<key>cdhash</key>
 			<data>
-			gkk9BaVsQ4gUmaqO8llP7dOHjhE=
+			PwFFRf9ZixKTWPKgk9p5KY38nsk=
 			</data>
-			<key>hash2</key>
-			<data>
-			K17G+d04Tw396K/qurHzQZc/0cTgWwEESFtu6sfMd0w=
-			</data>
+			<key>requirement</key>
+			<string>cdhash H"c692ffaa33862033b412415931a4ee06190381f5" or cdhash H"3f014545ff598b129358f2a093da79298dfc9ec9"</string>
 		</dict>
 	</dict>
 	<key>rules</key>
