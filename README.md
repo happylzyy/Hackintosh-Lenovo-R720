@@ -36,7 +36,7 @@ macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，需
 
 * 睡眠唤醒：普通睡眠、合盖睡眠正常
 
-* 声卡驱动（layout-id=28）：扬声器、耳机、麦克风阵列、线路输入、EAPD工作正常
+* 声卡驱动（layout-id=14）：扬声器、耳机、麦克风阵列、线路输入、EAPD工作正常
 
 * 有线网卡
 
@@ -46,27 +46,26 @@ macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，需
 
 * USB2.0/3.0，type-C
 
-* 蓝牙（更换的无线网卡）：随航、接力、隔空投送、通用控制
+* 蓝牙（BCM94360CS2）：随航、接力、隔空投送、通用控制
 
-* WLAN（更换的无线网卡）
+* WLAN（BCM94360CS2）
 
 * 联想OEM的部分功能：<kbd>Fn+Fxx</kbd>键、风扇传感器、电池传感器
 
+* SD读卡器
+
+* HDMI、type-C外接显示器
+
 #### 已知问题
 
-* macOS Ventura及以上版本外接显示器不可用
+* HDMI、type-C外接显示器分辨率识别可能不准确
 
-  安装旧版本macOS，改机型配置文件为`MacbookPro11,4`可启用HDMI。
-
-* SD读卡器不可用
 
 #### 附加内容
 
 1. <kbd>PrtSc</kbd>键已通过SSDT-PS2K映射到<kbd>F13</kbd>，系统偏好设置中设置截图快捷键为<kbd>F13</kbd>即可使用PrtSc截图功能。
-
 2. 联想OEM部分功能（Fn+Fxx键、键盘背光控制、风扇传感器）需要安装额外的应用和面板[YogaSMCNC](https://github.com/zhen-zen/YogaSMC/releases)。
-
-3. 关于解锁MSR 0x2E CFG Lock详见[MSR_CFG_unlock.md](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/MSR_CFG_unlock.md)。
+3. 关于解锁MSR 0x2E CFG Lock等BIOS修改，详见[MSR_CFG_unlock.md](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/MSR_CFG_unlock.md)和[BIOS variable](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/bios_variable.txt)。
 
 #### 参考资料
 
@@ -83,3 +82,5 @@ macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，需
 11. [详解Mac睡眠模式设置](https://www.cnblogs.com/motoyang/p/4947139.html)、[Mac的睡眠模式介绍](https://www.cnblogs.com/motoyang/p/6075609.html)
 12. [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 13. [OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)
+14. [ferxiit/Y520-15IKBN-OpenCore](https://github.com/ferxiit/Y520-15IKBN-OpenCore)
+15. [[Guide] Lenovo Legion Y520/Y720 using Clover UEFI](https://www.tonymacx86.com/threads/guide-lenovo-legion-y520-y720-using-clover-uefi.261009/)
