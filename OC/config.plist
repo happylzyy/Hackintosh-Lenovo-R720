@@ -312,6 +312,30 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>Comment</key>
+				<string>Patch SkipLogo</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>UwBrAGkAcABMAG8AZwBv</data>
+				<key>Identifier</key>
+				<string>Apple</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>Replace</key>
+				<data>QQBrAGkAcABMAG8AZwBv</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Comment</key>
 				<string>Skip Board ID check</string>
 				<key>Count</key>
 				<integer>0</integer>
@@ -351,30 +375,6 @@
 				<data></data>
 				<key>Replace</key>
 				<data>aGFjT1M=</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
-				<key>Comment</key>
-				<string>Patch SkipLogo</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<false/>
-				<key>Find</key>
-				<data>UwBrAGkAcABMAG8AZwBv</data>
-				<key>Identifier</key>
-				<string>Apple</string>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>Replace</key>
-				<data>QQBrAGkAcABMAG8AZwBv</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -460,6 +460,8 @@
 				<key>device-id</key>
 				<data>G1kAAA==</data>
 				<key>disable-external-gpu</key>
+				<data>AQAAAA==</data>
+				<key>force-online</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con1-alldata</key>
 				<data>AQUKAAAIAACHAQAA</data>
@@ -1780,7 +1782,7 @@
 			<key>ScanPolicy</key>
 			<integer>19859203</integer>
 			<key>SecureBootModel</key>
-			<string>Default</string>
+			<string>Disabled</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
@@ -2275,6 +2277,8 @@
 			<dict>
 				<key>rtc-blacklist</key>
 				<data></data>
+				<key>revpatch</key>
+				<string>sbvmm</string>
 			</dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
@@ -2285,7 +2289,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>keepsyms=1 debug=0x100 -lilubetaall ipc_control_port_options=0 -nokcmismatchpanic amfi=0x80 agdpmod=vit9696 igfxonln=1 -v</string>
+				<string>keepsyms=1 debug=0x100 -lilubetaall ipc_control_port_options=0 -nokcmismatchpanic -v</string>
 				<key>csr-active-config</key>
 				<data>AwgAAA==</data>
 				<key>prev-lang:kbd</key>

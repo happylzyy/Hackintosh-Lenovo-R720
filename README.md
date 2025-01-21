@@ -12,49 +12,31 @@ Hackintosh-Lenovo-R720
 | 无线网卡/蓝牙（已更换） | BCM94360CS2                      |
 | 声卡                    | Realtek ALC235                   |
 
-适用于联想拯救者R720-15IKBN OpenCore EFI，经过测试可以用于
+适用于联想拯救者R720-15IKBN的OpenCore EFI，经过测试可以用于
 
-- macOS Sequoia 15.0
+- macOS Sequoia 15.x
 - macOS Ventura 13.x
 - macOS Monterey 12.x
 - macOS Big Sur 11.x
 - macOS Catalina 10.15.x
 
-旧版本macOS不支持直接升级到macOS Sonoma / Sequoia，需要使用[OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)制作修补后的U盘镜像升级。用本EFI替换U盘EFI，从U盘启动升级。
-
-macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，需要使用[OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)对系统进行修补。
-
-关于Intel无线网卡的驱动见[OpenIntelWireless](https://openintelwireless.github.io/)。
-
 #### 已驱动
 
 * 核显 HD630
-
 * 屏幕亮度调节，亮度调节功能键
-
 * CPU变频：支持900MHz～3100MHz共23档变频（来自CPU-S工具的估算值）
-
 * 睡眠唤醒：普通睡眠、合盖睡眠正常
-
 * 声卡驱动（layout-id=14）：扬声器、耳机、麦克风阵列、线路输入、EAPD工作正常
-
 * 有线网卡
-
 * 触控板与键盘：支持苹果触控板手势，小键盘与NumLock键正常
-
 * 摄像头
-
 * USB2.0/3.0，type-C
-
 * 蓝牙（BCM94360CS2）：随航、接力、隔空投送、通用控制
-
 * WLAN（BCM94360CS2）
-
 * 联想OEM的部分功能：<kbd>Fn+Fxx</kbd>键、风扇传感器、电池传感器
-
 * SD读卡器
-
 * HDMI、type-C外接显示器
+* 注入三码后iServices服务正常
 
 #### 已知问题
 
@@ -66,6 +48,9 @@ macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，需
 1. <kbd>PrtSc</kbd>键已通过SSDT-PS2K映射到<kbd>F13</kbd>，系统偏好设置中设置截图快捷键为<kbd>F13</kbd>即可使用PrtSc截图功能。
 2. 联想OEM部分功能（Fn+Fxx键、键盘背光控制、风扇传感器）需要安装额外的应用和面板[YogaSMCNC](https://github.com/zhen-zen/YogaSMC/releases)。
 3. 关于解锁MSR 0x2E CFG Lock等BIOS修改，详见[MSR_CFG_unlock.md](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/MSR_CFG_unlock.md)和[BIOS variable](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/bios_variable.txt)。
+4. macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，需要使用[OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)对系统进行修补。
+
+   关于Intel无线网卡的驱动见[OpenIntelWireless](https://openintelwireless.github.io/)。
 
 #### 参考资料
 
