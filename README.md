@@ -14,11 +14,18 @@ Hackintosh-Lenovo-R720
 
 适用于联想拯救者R720-15IKBN的OpenCore EFI，经过测试可以用于
 
+- macOS Tahoe 26.0
 - macOS Sequoia 15.x
 - macOS Ventura 13.x
 - macOS Monterey 12.x
 - macOS Big Sur 11.x
 - macOS Catalina 10.15.x
+
+macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，需要使用[OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)对系统进行修补。
+
+macOS Tahoe移除了AppleHDA驱动，导致声卡无法驱动，需要使用修改版OCLP对系统进行修补。
+
+OTA升级macOS Tahoe可能遇到NSU 1130错误，需要设置`SecureBootModel`为`Disabled`。
 
 #### 已驱动
 
@@ -42,15 +49,11 @@ Hackintosh-Lenovo-R720
 
 * HDMI、type-C外接显示器分辨率识别可能不准确
 
-
 #### 附加内容
 
 1. <kbd>PrtSc</kbd>键已通过SSDT-PS2K映射到<kbd>F13</kbd>，系统偏好设置中设置截图快捷键为<kbd>F13</kbd>即可使用PrtSc截图功能。
 2. 联想OEM部分功能（Fn+Fxx键、键盘背光控制、风扇传感器）需要安装额外的应用和面板[YogaSMCNC](https://github.com/zhen-zen/YogaSMC/releases)。
 3. 关于解锁MSR 0x2E CFG Lock等BIOS修改，详见[MSR_CFG_unlock.md](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/MSR_CFG_unlock.md)和[BIOS variable](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/bios_variable.txt)。
-4. macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，需要使用[OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)对系统进行修补。
-
-   关于Intel无线网卡的驱动见[OpenIntelWireless](https://openintelwireless.github.io/)。
 
 #### 参考资料
 
