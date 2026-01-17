@@ -14,18 +14,18 @@ Hackintosh-Lenovo-R720
 
 适用于联想拯救者R720-15IKBN的OpenCore EFI，经过测试可以用于
 
-- macOS Tahoe 26.0
+- macOS Tahoe 26.x
 - macOS Sequoia 15.x
 - macOS Ventura 13.x
 - macOS Monterey 12.x
 - macOS Big Sur 11.x
 - macOS Catalina 10.15.x
 
-macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，需要使用[OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)对系统进行修补。
+macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，使用[OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)对系统进行修补。
 
-macOS Tahoe移除了AppleHDA驱动，导致声卡无法驱动，需要使用修改版OCLP对系统进行修补。
+macOS Tahoe移除了Broadcom、Atheros等无线网卡的驱动，AppleHDA驱动，使用[OCLP-mod](https://github.com/laobamac/OCLP-Mod)对系统进行修补。
 
-OTA升级macOS Tahoe可能遇到NSU 1130错误，需要设置`SecureBootModel`为`Disabled`。
+
 
 #### 已驱动
 
@@ -41,13 +41,18 @@ OTA升级macOS Tahoe可能遇到NSU 1130错误，需要设置`SecureBootModel`�
 * 蓝牙（BCM94360CS2）：随航、接力、隔空投送、通用控制
 * WLAN（BCM94360CS2）
 * 联想OEM的部分功能：<kbd>Fn+Fxx</kbd>键、风扇传感器、电池传感器
-* SD读卡器
 * HDMI、type-C外接显示器
 * 注入三码后iServices服务正常
 
 #### 已知问题
 
 * HDMI、type-C外接显示器分辨率识别可能不准确
+* SD读卡器无法识别
+
+#### 注意
+
+- EFI中包含了broadcom网卡驱动，请按需启用或禁用。
+- OTA升级macOS Tahoe可能遇到NSU 1130错误，需要设置`SecureBootModel`为`Disabled`。
 
 #### 附加内容
 
