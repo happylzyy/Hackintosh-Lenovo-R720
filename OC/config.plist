@@ -332,30 +332,6 @@
 		<array>
 			<dict>
 				<key>Arch</key>
-				<string>Any</string>
-				<key>Comment</key>
-				<string>macOS to hacOS</string>
-				<key>Count</key>
-				<integer>1</integer>
-				<key>Enabled</key>
-				<false/>
-				<key>Find</key>
-				<data>bWFjT1M=</data>
-				<key>Identifier</key>
-				<string>Apple</string>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>Replace</key>
-				<data>aGFjT1M=</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>Arch</key>
 				<string>x86_64</string>
 				<key>Comment</key>
 				<string>Patch SkipLogo</string>
@@ -373,6 +349,30 @@
 				<data></data>
 				<key>Replace</key>
 				<data>QQBrAGkAcABMAG8AZwBv</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>Comment</key>
+				<string>macOS to hacOS</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>bWFjT1M=</data>
+				<key>Identifier</key>
+				<string>Apple</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>Replace</key>
+				<data>aGFjT1M=</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -1781,7 +1781,7 @@
 			<key>ScanPolicy</key>
 			<integer>33521411</integer>
 			<key>SecureBootModel</key>
-			<string>Default</string>
+			<string>Disabled</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
@@ -2288,7 +2288,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>ipc_control_port_options=0 -v</string>
+				<string>ipc_control_port_options=0 -amfipassbeta -lilubetaall</string>
 				<key>csr-active-config</key>
 				<data>AwgAAA==</data>
 				<key>prev-lang:kbd</key>
