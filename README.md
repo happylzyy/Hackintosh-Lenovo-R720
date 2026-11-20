@@ -21,12 +21,6 @@ Hackintosh-Lenovo-R720
 - macOS Big Sur 11.x
 - macOS Catalina 10.15.x
 
-macOS Sonoma / Sequoia 移除了Broadcom、Atheros等无线网卡的驱动，使用[OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)对系统进行修补。
-
-macOS Tahoe移除了Broadcom、Atheros等无线网卡的驱动，AppleHDA驱动，使用[OCLP-mod](https://github.com/laobamac/OCLP-Mod)对系统进行修补。
-
-
-
 #### 已驱动
 
 * 核显 HD630
@@ -46,12 +40,10 @@ macOS Tahoe移除了Broadcom、Atheros等无线网卡的驱动，AppleHDA驱动�
 
 #### 已知问题
 
-* HDMI、type-C外接显示器分辨率识别可能不准确
-* SD读卡器无法识别
+* HDMI、type-C外接显示器分辨率识别可能不准确或黑屏
 
 #### 注意
 
-- EFI中包含了broadcom网卡驱动，请按需启用或禁用。
 - OTA升级macOS Tahoe可能遇到NSU 1130错误，需要设置`SecureBootModel`为`Disabled`。
 
 #### 附加内容
