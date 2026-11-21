@@ -24,32 +24,47 @@ Hackintosh-Lenovo-R720
 #### 已驱动
 
 * 核显 HD630
+
 * 屏幕亮度调节，亮度调节功能键
+
 * CPU变频：支持900MHz～3100MHz共23档变频（来自CPU-S工具的估算值）
+
 * 睡眠唤醒：普通睡眠、合盖睡眠正常
+
 * 声卡驱动（layout-id=14）：扬声器、耳机、麦克风阵列、线路输入、EAPD工作正常
+
+  [SimpleHDA](https://github.com/laobamac/SimpleHDA)恢复音频功能+修改版AppleALC(layout-id=14)解决睡眠唤醒耳机异常问题
+
 * 有线网卡
+
 * 触控板与键盘：支持苹果触控板手势，小键盘与NumLock键正常
+
 * 摄像头
+
 * USB2.0/3.0，type-C
+
 * 蓝牙（BCM94360CS2）：随航、接力、隔空投送、通用控制
-* WLAN（BCM94360CS2）
+
+* Wi-Fi（BCM94360CS2）
+
+  [SimpleBCM](https://github.com/laobamac/SimpleBCM)恢复Wi-Fi功能
+
 * 联想OEM的部分功能：<kbd>Fn+Fxx</kbd>键、风扇传感器、电池传感器
+
 * HDMI、type-C外接显示器
+
+  [修改版WhateverGreen](https://github.com/happylzyy/WhateverGreen-R720-mod)解决R720特定的外显问题
+
 * 注入三码后iServices服务正常
 
 #### 已知问题
 
-* HDMI、type-C外接显示器分辨率识别可能不准确或黑屏
-
-#### 注意
-
-- OTA升级macOS Tahoe可能遇到NSU 1130错误，需要设置`SecureBootModel`为`Disabled`。
+暂无
 
 #### 附加内容
 
 1. <kbd>PrtSc</kbd>键已通过SSDT-PS2K映射到<kbd>F13</kbd>，系统偏好设置中设置截图快捷键为<kbd>F13</kbd>即可使用PrtSc截图功能。
-2. 联想OEM部分功能（Fn+Fxx键、键盘背光控制、风扇传感器）需要安装额外的应用和面板[YogaSMCNC](https://github.com/zhen-zen/YogaSMC/releases)。
+2. 联想OEM部分功能（Fn+Fxx键、键盘背光控制、风扇传感器）需要安装额外的设置面板[YogaSMCNC](https://github.com/zhen-zen/YogaSMC/releases)。
 3. 关于解锁MSR 0x2E CFG Lock等BIOS修改，详见[MSR_CFG_unlock.md](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/MSR_CFG_unlock.md)和[BIOS variable](https://github.com/happylzyy/Hackintosh-Lenovo-R720/blob/main/bios_variable.txt)。
 
 #### 参考资料
@@ -69,3 +84,5 @@ Hackintosh-Lenovo-R720
 13. [OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/)
 14. [ferxiit/Y520-15IKBN-OpenCore](https://github.com/ferxiit/Y520-15IKBN-OpenCore)
 15. [[Guide] Lenovo Legion Y520/Y720 using Clover UEFI](https://www.tonymacx86.com/threads/guide-lenovo-legion-y520-y720-using-clover-uefi.261009/)
+16. [SimpleBCM](https://github.com/laobamac/SimpleBCM)、[SimpleHDA](https://github.com/laobamac/SimpleHDA)
+17. [WhateverGreen](https://github.com/acidanthera/Whatevergreen)
